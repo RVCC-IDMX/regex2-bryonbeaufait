@@ -17,7 +17,7 @@
  * ? example: testString('abc', /def/) // false
  */
 function testString(str, re) {
-  // write your code here & return value
+  return re.test(str);
 }
 
 /**
@@ -33,7 +33,9 @@ function testString(str, re) {
  * ? hint: create a string with the join array method and the | character as the separator
  */
 function testStringOr(str, arr) {
-  // write your code here & return value
+  const words = arr.join('|');
+  const re = new RegExp(words, 'g');
+  return re.test(str);
 }
 
 /**
@@ -47,7 +49,8 @@ function testStringOr(str, arr) {
  * ? must use the constructor new RegExp(str) to create a regular expression
  */
 function testStringIgnoreCase(str, match) {
-  // write your code here & return value
+  const re = new RegExp(match, 'i');
+  return re.test(str);
 }
 
 /**
@@ -60,7 +63,10 @@ function testStringIgnoreCase(str, match) {
  * ? example: countVowels('the boy is lost in the woods, HELP US!') => 10
  */
 function countVowels(str) {
-  // write your code here & return value
+  const vowels = /[aeiou]/gi;
+  const result = str.match(vowels);
+  const count = result.length;
+  return count;
 }
 
 /**
@@ -74,7 +80,7 @@ function countVowels(str) {
  * ? must use the replace() string method - https://mzl.la/2Zsw4F6
  */
 function replaceVowels(str, ch) {
-  // write your code here & return value
+  return str.replace(/[aeiou]+/gi, ch);
 }
 
 /**
@@ -87,7 +93,7 @@ function replaceVowels(str, ch) {
  * ? must use the constructor new RegExp(str) to create a regular expression
  */
 function isPrefix(str, prefix) {
-  // write your code here & return value
+  return str.startsWith(prefix, 0);
 }
 
 module.exports = {
